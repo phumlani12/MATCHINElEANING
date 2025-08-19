@@ -1,6 +1,6 @@
-# Simple Linear Regression Example
+# Simple Linear Regression
 
-This repository demonstrates the **simplest possible machine learning example**:  
+This repository demonstrates the **simplest possible machine learning **:  
 predicting house prices using **Linear Regression**.
 
 ## How it works
