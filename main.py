@@ -1,4 +1,4 @@
-\A#!/.*python3?$
+#!/usr/bin/python3
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
@@ -19,5 +19,6 @@ def run_ml_example():
     print(f"Model coefficient (slope): {model.coef_[0]:.2f}")
     print(f"Model intercept: {model.intercept_:.2f}")
 
-^if __name__ *== *['\"]__main__['\"]:
+if __name__ == "__main__":
     run_ml_example()
+
