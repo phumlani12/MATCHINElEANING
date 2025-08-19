@@ -1,20 +1,23 @@
 \A#!/.*python3?$
-import requests
-from bs4 import BeautifulSoup
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
-def get_weather():
-    url = "https://www.timeanddate.com/weather/south-africa/port-elizabeth"
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, "html.parser")
-    temperature = soup.find("div", class_="h2")
-    condition_box = soup.find("p", class_="bk-focus__qlook")
+def run_ml_example():
+    # Training data: number of rooms (X) vs house price (y in $1000s)
+    X = np.array([[1], [2], [3], [4], [5]])
+    y = np.array([150, 200, 250, 300, 350])  # in thousands
 
-    if temperature and condition_box:
-        print("Weather in Port Elizabeth, South Africa:")
-        print("Temperature:", temperature.text.strip())
-        print("Condition:", condition_box.text.strip().split("\n")[0])
-    else:
-        print("Sorry, couldn't find the weather information.")
+    # Create and train the model
+    model = LinearRegression()
+    model.fit(X, y)
 
-if __name__ == ['\"]__main__['\"]:
-    get_weather()
+    # Make a prediction: price of a house with 6 rooms
+    prediction = model.predict([[6]])
+    print(f"Predicted price for a 6-room house: ${prediction[0]:.2f}k")
+
+    # Show model details
+    print(f"Model coefficient (slope): {model.coef_[0]:.2f}")
+    print(f"Model intercept: {model.intercept_:.2f}")
+
+^if __name__ *== *['\"]__main__['\"]:
+    run_ml_example()
